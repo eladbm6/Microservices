@@ -18,6 +18,9 @@ namespace Microservice1
                                      autoDelete: false,
                                      arguments: null);
 
+                string EncryptionKey = "encryptionkey";
+                i_TheMessage = EncryptString.stringEncrypt(i_TheMessage, EncryptionKey);
+
                 var body = System.Text.Encoding.UTF8.GetBytes(i_TheMessage);
 
                 channel.BasicPublish(exchange: "",

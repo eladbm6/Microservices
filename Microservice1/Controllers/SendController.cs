@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using System.Security.Cryptography;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,7 +18,7 @@ namespace Microservice1.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            DateTime today = new DateTime(2020, 07, 22);
+            DateTime today = DateTime.Now;
             PersonList list = new PersonList("Elad Ben Moshe", today, 25, "Software Developer"); 
             JObject json = (JObject)JToken.FromObject(list);
             json.Property("m_Age").Remove();

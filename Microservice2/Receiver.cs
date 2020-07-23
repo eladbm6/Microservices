@@ -26,6 +26,8 @@ namespace Microservice2
                 {
                     var body = ea.Body.ToArray();
                     var message = System.Text.Encoding.UTF8.GetString(body);
+                    string EncryptionKey = "encryptionkey";
+                    message = DecryptString.stringDecrypt(message, EncryptionKey);
                     Console.WriteLine("Received {0}", message);
                 };
                 channel.BasicConsume(queue: "queue1",
